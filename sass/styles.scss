@@ -1,10 +1,18 @@
 body {
-  font-family: monospace;
+  background-color: black;
+  color: white;
+  font-family: 'Overpass Mono', monospace;
   font-size: 18px;
   line-height: 1.5;
 }
 main {
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 0 auto;
 }
 
+h1 {
+  font-weight: bold;
+}
+a {
+  color: blueviolet;
+}
