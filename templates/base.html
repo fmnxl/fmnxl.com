@@ -19,22 +19,24 @@
     <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:400,700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <main>
-      <h1>
-        <a href="/">
-          Freeman Latif
-        </a>
-      </h1>
-      <p>
-        <a href="https://github.com/fmnxl" target="_blank">github.com/fmnxl</a>
-        &middot;
-        <a href="https://twitter.com/fmnxl" target="_blank">twitter.com/fmnxl</a>
-        &middot;
-        <a href="https://docs.google.com/document/d/1hIOkxhcJAO_p8KPsOaOhEhSYG-MREWGklSe9OJ6VWVM/export?format=pdf" target="_blank">cv</a>
-      </p>
-      <hr />
-      {% block content %} {% endblock %}
-      <script src="/livereload.js?port=1024&mindelay=10"></script>
+    <div class="main">
+      <div>
+        <h1><a href="/">Freeman Latif</a></h1>
+        <small>
+          <p>
+            <a href="https://github.com/fmnxl" target="_blank">github.com/fmnxl</a>
+            <a href="https://twitter.com/fmnxl" target="_blank">twitter.com/fmnxl</a>
+            <a href="https://docs.google.com/document/d/1hIOkxhcJAO_p8KPsOaOhEhSYG-MREWGklSe9OJ6VWVM/export?format=pdf" target="_blank">resume</a>
+          </p>
+        </small>
+      </div>
+      <div class="content">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+    <footer>
+      Site proudly built with <a href="https://www.getzola.org/" target="_blank">Zola</a>
+    </footer>
+    <script src="/livereload.js?port=1024&mindelay=10"></script>
   </body>
 </html>
-

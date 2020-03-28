@@ -4,16 +4,35 @@ body {
   font-family: 'Overpass Mono', monospace;
   font-size: 18px;
   line-height: 1.5;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 }
-main {
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 16px;
+  }
+}
+.main {
   max-width: 60rem;
   margin: 0 auto;
+  padding: 1rem;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 1 auto;
+  padding-bottom: 1rem;
 }
 a {
-  color: blueviolet;
+  color: brown;
 }
 a:hover {
-  background: blueviolet;
+  background: brown;
   color: white;
 }
 h1 > a {
@@ -23,7 +42,8 @@ h1 > a {
 h1 > a:hover {
   color: white;
 }
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
+footer {
+  background-color: black;
+  color: white;
+  padding: 1rem;
 }
