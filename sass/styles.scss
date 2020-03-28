@@ -1,6 +1,6 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: #333;
   font-family: 'Overpass Mono', monospace;
   font-size: 18px;
   line-height: 1.5;
@@ -9,10 +9,21 @@ main {
   max-width: 60rem;
   margin: 0 auto;
 }
-
-h1 {
-  font-weight: bold;
-}
 a {
   color: blueviolet;
+}
+a:hover {
+  background: blueviolet;
+  color: white;
+}
+h1 > a {
+  text-decoration: none;
+  color: inherit;
+}
+h1 > a:hover {
+  color: white;
+}
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
 }
