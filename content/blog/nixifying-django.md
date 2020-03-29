@@ -1,6 +1,6 @@
 +++
-title = "Use Nix(OS) for greater good"
-date = 2020-03-27
+title = "Nixifying a Django project"
+date = 2020-03-28
 draft = true
 [taxonomies]
 tags = ["ux", "web"]

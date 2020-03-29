@@ -4,6 +4,15 @@
 <h1 class="title">
   {{ page.title }}
 </h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
+<small>
+  <p>
+    <strong>{{ page.date }}</strong>
+    <br />
+    Tags: {{ page.taxonomies.tags }}
+    <br />
+    Categories: {{ page.taxonomies.categories }}
+  </p>
+</small>
+
 <p>{{ page.content | safe }}</p>
 {% endblock content %}

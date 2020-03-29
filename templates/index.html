@@ -1,37 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main>
-  <h2>About</h2>
-  <p>I design and build applications for businesses.</p>
-  <p>
-    I am currently working on <a href="https://fixthemusic.com" target="_blank">FixTheMusic</a>.
-    Previously worked at <a href="https://smarkets.com">Smarkets</a> and <a href="https://syftapp.com" target="_blank">Syft</a> in London, UK.
-  </p>
-  <p>My primary areas of work and interest are:</p>
-  <ul>
-    <li>Designing and building user interfaces</li>
-    <li>Building web APIs and designing backend architectures</li>
-    <li>Functional programming (Haskell, Nix)</li>
-  </ul>
-  <h2>Contact</h2>
-  For consultancy and project enquiries, please email me at <a href="mailto:work@fmnxl.com">work@fmnxl.com</a>
+  {{ section.content | safe }}
+  {% set blog = get_section(path="blog/_index.md") %}
+  <h2>Blog</h2>
+  {% for page in blog.pages %}
+    <p>
+      {{page.date}} <a href="{{page.permalink}}">{{ page.title }}</a>
+    </p>
+  {% endfor %}
 
-  <!-- <p>Recently I've been:</p>
-  <ul>
-    <li>Setting up <strong>Nix</strong> for a React Native project</li>
-    <li>Adding E2E testing with Detox</li>
-    <li>Learning Rust</li>
-  </ul> -->
-  
-  <!-- <h2>Blog</h2> -->
-  <!-- <p>
-    <a href="./blog/learning-haskell-as-react-developer.html">Learning Haskell as a React Developer, with Brick</a> - 02/09/2019<br />
-    Building a terminal-based Snake game using Brick to learn Haskell.
-  </p>
-  <p>
-    <a href="https://medium.com/wraptime-io/after-react-elm-152bd6559cb1" target="_blank">After React: Elm?</a> - 20/05/2016<br />
-    A peek into the Elm ecosystem and comparison with React.
-  </p> -->
-</main>
 {% endblock content %}
