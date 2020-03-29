@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "htts://www.fmnxl.com"
+base_url = "https://www.fmnxl.com"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
