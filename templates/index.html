@@ -2,7 +2,14 @@
 
 {% block content %}
   {{ section.content | safe }}
+  {% set projects = get_section(path="projects/_index.md") %}
   {% set blog = get_section(path="blog/_index.md") %}
+  <h2>Projects</h2>
+  {% for page in projects.pages %}
+    <p>
+      {{page.date}} <a href="{{page.permalink}}">{{ page.title }}</a>
+    </p>
+  {% endfor %}
   <h2>Blog</h2>
   {% for page in blog.pages %}
     <p>

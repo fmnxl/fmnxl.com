@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4>PROJECT</h4>
+<h1 class="title">
+  {{ page.title }}
+</h1>
+<small>
+  <p>
+    <strong>{{ page.extra.timeframe }}</strong>
+    <br />
+    <a href="{{ page.extra.link }}">{{ page.extra.link }}</a>
+    <br />
+    Tech stack: {{ page.extra.tech }}
+  </p>
+</small>
+
+<p>{{ page.content | safe }}</p>
+{% endblock content %}

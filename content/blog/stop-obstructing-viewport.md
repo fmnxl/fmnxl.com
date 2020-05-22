@@ -1,6 +1,7 @@
 +++
 title = "Stop obstructing the viewport"
 date = 2020-03-26
+draft = true
 [taxonomies]
 tags = ["ux", "web"]
 categories = ["design"]

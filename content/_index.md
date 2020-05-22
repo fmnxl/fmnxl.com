@@ -4,7 +4,7 @@
 ## About
 I design and build applications for businesses. I'm based in multiple Southeast Asian cities on a rotating basis.
 
-  I am currently working on [FixTheMusic](https://fixthemusic.com) and Yokoya.
+  I am currently working on [FixTheMusic](https://fixthemusic.com) and [Yokoya](https://yokoya.co.uk).
   Previously worked at [Smarkets](https://smarkets.com) and [Syft](https://syftapp.com) in London, UK.
 
 My primary areas of work and interest are:
