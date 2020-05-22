@@ -2,12 +2,11 @@
 +++
 
 ## About
-I design and build web applications.
+Designing and building web applications since 2006.
 
-I currently work remotely from Jakarta, Indonesia (GMT+7).
+Currently working remotely from Jakarta, Indonesia (GMT+7).
 
-I am currently working on [FixTheMusic](https://fixthemusic.com) and [Yokoya](https://yokoya.co.uk).
-Previously worked at [Smarkets](https://smarkets.com) and [Syft](https://syftapp.com) in London, UK.
+Previously worked for startups in London (2016-2020) and Nottingham (2012-2016).
 
 My primary areas of work and interest are:
 

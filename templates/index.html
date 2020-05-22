@@ -7,7 +7,7 @@
   <h2>Projects</h2>
   {% for page in projects.pages %}
     <p>
-      {{page.date}} <a href="{{page.permalink}}">{{ page.title }}</a>
+      {{page.date}} <a href="{{page.permalink}}">{{ page.title }} - ({{page.extra.timeframe}})</a>
     </p>
   {% endfor %}
   <h2>Blog</h2>
