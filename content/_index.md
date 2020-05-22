@@ -2,16 +2,19 @@
 +++
 
 ## About
-I design and build applications for businesses. I'm based in multiple Southeast Asian cities on a rotating basis.
+I design and build web applications.
 
-  I am currently working on [FixTheMusic](https://fixthemusic.com) and [Yokoya](https://yokoya.co.uk).
-  Previously worked at [Smarkets](https://smarkets.com) and [Syft](https://syftapp.com) in London, UK.
+I currently work remotely from Jakarta, Indonesia (GMT+7).
+
+I am currently working on [FixTheMusic](https://fixthemusic.com) and [Yokoya](https://yokoya.co.uk).
+Previously worked at [Smarkets](https://smarkets.com) and [Syft](https://syftapp.com) in London, UK.
 
 My primary areas of work and interest are:
 
-- Designing and building user interfaces
-- Building web APIs and architecturing backend services
-- Functional programming (Haskell, Nix)
+- Designing and building user interfaces (JS)
+- Building web APIs (JS, Python)
+- Designing backend architectures (Nix)
+- Functional programming (Haskell)
 
 ## Contact
 
