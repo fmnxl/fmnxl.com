@@ -9,3 +9,8 @@ echo "use nix > .envrc
 direnv allow .
 zola serve
 ```
+
+### Comments
+
+https://comments-for-fmnxl-com.talkyard.net/
+

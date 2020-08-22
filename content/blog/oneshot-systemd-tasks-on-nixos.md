@@ -4,10 +4,12 @@ date = 2020-08-16
 [taxonomies]
 tags = ["web"]
 categories = ["devops"]
+[extra]
+discussion_id = "oneshot-systemd-tasks-on-nixos"
 +++
 
 
-A type of Systemd service is a `oneshot` service. These are services that are expected to be short-lived (as opposed to a background task). Oneshot services is a convenient way to write scripts that can be deployed to remote systems. For example, I use systemd to write tasks for backing up and restoring a database from/to S3.
+A type of Systemd service is a `oneshot` service. These are services that are expected to be short-lived (as opposed to a background task). I have been using oneshot services as a convenient way to write global utility scripts that I can deploy to remote systems. For example, I'm using it to write tasks for backing up and restoring a database from/to S3.
 
 ```nix
 {
@@ -83,3 +85,7 @@ We can run this script like so:
 ```sh
 $ systemctl start restoreDbBackup@20200822
 ```
+
+### Future work
+
+I would like to experiment with passing complex arguments to the service, e.g. flags.
