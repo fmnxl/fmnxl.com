@@ -9,7 +9,7 @@ discussion_id = "oneshot-systemd-tasks-on-nixos"
 +++
 
 
-A type of Systemd service is a `oneshot` service. These are services that are expected to be short-lived (as opposed to a background task). I have been using oneshot services as a convenient way to write global utility scripts that I can deploy to remote systems. For example, I'm using it to write tasks for backing up and restoring a database from/to S3.
+A type of Systemd service are `oneshot` services. These are services that are expected to be short-lived (as opposed to background tasks). I have found it convenient to write global utility scripts as oneshot services, especially on NixOS, where I can deploy them to remote systems (e.g. with NixOps). For example, I wrote these nix expressions for backing up and restoring a database from/to S3.
 
 ```nix
 {
@@ -23,12 +23,12 @@ A type of Systemd service is a `oneshot` service. These are services that are ex
     script = ''
       today=$(date +"%Y%m%d")
       ${pkgs.postgresql_11}/bin/pg_dump \
-        -h localhost \
-        -U postgres \
+        --host localhost \
+        --username postgres \
         --format=c \
         my-db | \
       ${pkgs.awscli}/bin/aws s3 cp \
-        $tmpfile \
+        - \
         "s3://$AWS_BACKUP_BUCKET/backup.$today.dump"
     '';
   };
@@ -71,10 +71,10 @@ Here is my DB restore script. It takes the date of the backup to be restored as 
         "s3://$AWS_BACKUP_BUCKET/backup.$BACKUP_DATE.dump" \
         - | \
       ${pkgs.postgresql_11}/bin/pg_restore \
-        --clean \
-        --dbname my-db \
         --host localhost \
-        --username postgres
+        --username postgres \
+        --clean \
+        --dbname my-db
     '';
   };
 }
