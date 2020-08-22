@@ -12,10 +12,11 @@ body {
 }
 @media screen and (max-width: 400px) {
   body {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 .main {
+  width: 100%;
   max-width: 60rem;
   margin: 0 auto;
   padding: 1rem;
@@ -23,6 +24,10 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+pre {
+  overflow-x: scroll;
+  font-size: 1rem;
 }
 .content {
   flex: 1 1 auto;
