@@ -88,4 +88,4 @@ $ systemctl start restoreDbBackup@20200822
 
 ### Future work
 
-I would like to experiment with passing complex arguments to the service, e.g. flags.
+I would like to experiment with passing complex arguments to the service, e.g. flags, and the possibility of writing interactive services that accepts input from stdin.
