@@ -29,7 +29,7 @@ A type of Systemd service is a `oneshot` service. These are services that are ex
         my-db | \
       ${pkgs.awscli}/bin/aws s3 cp \
         $tmpfile \
-        "s3://$AWS_BACKUP_BUCKET/backup.$today.sql"
+        "s3://$AWS_BACKUP_BUCKET/backup.$today.dump"
     '';
   };
 }
@@ -68,7 +68,7 @@ Here is my DB restore script. It takes the date of the backup to be restored as 
     serviceConfig.Type = "oneshot";
     script = ''
       ${pkgs.awscli}/bin/aws s3 cp \
-        "s3://$AWS_BACKUP_BUCKET/backup.$BACKUP_DATE.sql" \
+        "s3://$AWS_BACKUP_BUCKET/backup.$BACKUP_DATE.dump" \
         - | \
       ${pkgs.postgresql_11}/bin/pg_restore \
         --clean \
