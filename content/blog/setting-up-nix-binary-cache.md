@@ -17,6 +17,10 @@ On CI (e.g. Travis), where each build is run on a pristine environment, I need t
 
 It is also possible to share binary cache within a development team, but I am not going to cover that here. There's a good [article](https://www.tweag.io/blog/2019-11-21-untrusted-ci/) by Tweag on that. This article is mainly aimed at solo developers or small teams where everyone can be trusted to push to the cache.
 
+There are a number of articles/manuals online regarding Nix binary caches, but I found that there has been significant changes to the API in the last few years. The [official guide] still uses HTTP via `nix-serve`, which requires a running server, and there is no mention of S3. There was also a time when private S3 caches [had to be created in us-east-1](https://github.com/NixOS/nix/pull/2319/files#diff-75751bba21fc2ca0563aff72d3390193R76). I also encountered issues that I've documented in the Troubleshooting section below.
+
+Therefore, here we go, the ultimate guide (as per August 2020), to setting up a Nix binary cache :)
+
 
 ### Before we start
 
@@ -30,7 +34,7 @@ nix (Nix) 2.3.7
 
 ## Step by step guide
 
-I'm going to walk through the process of setting up and using the cache, each time demonstrating 
+I'm going to walk through the process of setting up and using the cache, each time demonstrating what is accomplished and how to verify it.
 
 0. Setup S3 bucket
 1. Setup keys
@@ -106,7 +110,7 @@ This can be skipped if you have set `secret-key-files` in `nix.conf`. See Optimi
 $ nix copy ---to s3://fmnxl-nix-cache /nix/store/xxxxxxxxxxxxxxxx-test
 ```
 
-If your bucket is private, you would need to [setup your AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on your machine. This can be in the form of setting environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+If your bucket is not world writeable (as it most likely is), you would need to [setup your AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) on your machine. This can be in the form of setting environment variables `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
 
 To check whether the path you've just uploaded has been properly signed, we can pass `--store s3://` to `nix path-info`
 
