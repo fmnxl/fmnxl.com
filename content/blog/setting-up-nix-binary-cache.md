@@ -28,7 +28,9 @@ nix (Nix) 2.3.7
 ```
 
 
-## Setting up a binary Cache
+## Step by step guide
+
+I'm going to walk through the process of setting up and using the cache, each time demonstrating 
 
 0. Setup S3 bucket
 1. Setup keys
@@ -116,16 +118,26 @@ You should get the same output as when checking signatures on your local nix sto
 
 
 ### 4. Use the cache as a substituter
-For nix-build to use your remote binary cache, some requirements must be satisfied
+
+To see this in action we must first remove the package from the local `/nix/store`:
+
+```
+$ nix-store --delete /nix/store/xxxxxxxxxxxxxxxx-test
+```
+
+Then let's try to build the package again, this time using our cache. For nix-build to use our remote cache, some requirements must be satisfied:
 
 - The builder needs to have access to the remote cache. Setup your AWS credentials
-- `substituters` and `trusted-public-keys` must be set, either as a flag or through `nix.conf` (see below)
 - remote path must have been signed.
+- `substituters` and `trusted-public-keys` must be set, either as a flag or through `nix.conf` (see below)
 
+Above we've made sure that we've setup AWS credentials on our machine, as well as checking that our packages in the remote cache has been properly signed.
+
+Let's build the package again:
 
 ```sh
-NIXOS_CACHE_PUBLIC_KEY=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
-nix-build \
+$ NIXOS_CACHE_PUBLIC_KEY=cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
+$ nix-build \
   --option extra-substituters s3://fmnxl-nix-cache \
   --option trusted-public-keys $NIXOS_CACHE_PUBLIC_KEY $YOUR_PUBLIC_KEY
 ```
@@ -169,6 +181,14 @@ secret-key-files = /home/fmnxl/fmnxl-nix-cache-keys/secret.key
 ```
 
 If you're using NixOS, you can also add these in your configuration.nix instead.
+
+```nix
+{
+  ...
+  nix.binaryCachePublicKeys = [ "fmnxl-nix-cache:XxXxxxXXXXxxXXxXXXXXxxxXXXX=" ];
+  nix.binaryCaches = [ "s3://fmnxl-nix-cache?region=eu-west-1" ];
+}
+```
 
 #### Pin your Nixpkgs
 
