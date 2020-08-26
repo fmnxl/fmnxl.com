@@ -32,8 +32,8 @@ nix (Nix) 2.3.7
 
 0. Setup S3 bucket
 1. Setup keys
-2. Sign build output paths
-3. Upload paths to S3
+2. Build & sign packages
+3. Upload packages to S3
 4. Use the cache as a substituter
 5. Optimisation
 
@@ -72,7 +72,7 @@ $ cat secret.key
 fmnxl-nix-cache:Rm9OIEAAx3pjlnUNfdW2d/6pOWxlOBTrDrHyf9HB538=
 ```
 
-### 2. Build and sign output paths
+### 2. Build and sign packages
 
 Build your package
 ```
@@ -98,7 +98,7 @@ $ nix path-info --sigs /nix/store/xxxxxxxxxxxxxxxx-test
 This can be skipped if you have set `secret-key-files` in `nix.conf`. See Optimisation section below.
 
 
-### 3. Upload paths to the binary cache on S3
+### 3. Upload packages to the binary cache on S3
 
 ```
 $ nix copy ---to s3://fmnxl-nix-cache /nix/store/xxxxxxxxxxxxxxxx-test
@@ -146,7 +146,7 @@ Voila!
 
 #### Use nix.conf
 
-We have been passing a number of options to commands, such as `--option substituters` and `nix sign-paths --key-file secret.key`. This becomes tedious when we're working with a lot of derivations and paths. They can be automised by adding these options to `nix.conf`.
+We have been passing a number of options to commands, such as `--option substituters` and `nix sign-paths --key-file secret.key`. This becomes tedious when we're working with a lot of builds. They can be automised by adding these options to `nix.conf`.
 
 You can find an excelent documentation on `nix.conf` [here](https://www.mankier.com/5/nix.conf). The fields we are interested in are:
 
@@ -157,7 +157,7 @@ You can get rid of the `--option extra-substituters` flag when running `nix-buil
 You can get rid of the `--option trusted-public-keys` flag when running `nix-build`
 
 **`secret-key-files`**  
-By adding this config, built paths are automatically signed, so we no longer have to `nix sign-paths` build results. These have to be absolute paths!
+By adding this config, building packages automatically signs them too, so we no longer have to `nix sign-paths` build results. Note that these have to be in the form of absolute paths (no `~`)!
 
 
 Here is my `~/.config/nix/nix.conf`:
