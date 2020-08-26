@@ -90,7 +90,7 @@ You can check that your path has been correctly signed by inspecting it with `ni
 
 ```
 $ nix path-info --sigs /nix/store/xxxxxxxxxxxxxxxx-test
-/nix/store/xxxxxxxxxxxxxxxx-fmnxl-test	ftm-nix-cache:XxXxXXXxxXxXX/XXXxXXXXxXXX/XXxxxxXX==
+/nix/store/xxxxxxxxxxxxxxxx-fmnxl-test	fmnxl-nix-cache:XxXxXXXxxXxXX/XXXxXXXXxXXX/XXxxxxXX==
 ```
 
 This can be skipped if you have set `secret-key-files` in `nix.conf`. See Optimisation section below.
@@ -135,7 +135,7 @@ When we run the above, we'll see that the path will be fetched from the cache.
 ```
 these paths will be fetched (0.00 MiB download, 0.00 MiB unpacked):
   /nix/store/whc5sw780grarhv00gpxp5iys95zxn6p-fmnxl-test
-copying path '/nix/store/whc5sw780grarhv00gpxp5iys95zxn6p-fmnxl-test' from 's3://ftm-nix-cache'...
+copying path '/nix/store/whc5sw780grarhv00gpxp5iys95zxn6p-fmnxl-test' from 's3://fmnxl-nix-cache'...
 ```
 
 Voila!
