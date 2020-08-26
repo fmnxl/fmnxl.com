@@ -245,3 +245,5 @@ $ sudo systemctl restart nix-daemon
 We were able to use a (private) cache on S3 successfully. Personally I think it isn't so difficult, if there was a good step-by-step guide. Using cachix is definitely much simpler, avoiding the need to deal with keys and editting nix.conf. But with cachix only free for public caches, I think there is a case for a tool to simplify the process of adding a private binary cache.
 
 Would you be interested in such a tool? Comment below!
+
+If you find any fault in this article, also please dont' hesitate to ~~bash~~ correct me :)
