@@ -17,7 +17,7 @@ On CI (e.g. Travis), where each build is run on a pristine environment, I need t
 
 It is also possible to share binary cache within a development team, but I am not going to cover that here. There's a good [article](https://www.tweag.io/blog/2019-11-21-untrusted-ci/) by Tweag on that. This article is mainly aimed at solo developers or small teams where everyone can be trusted to push to the cache.
 
-There are a number of articles/manuals online regarding Nix binary caches, but I found that there has been significant changes to the API in the last few years. The [official guide] still uses HTTP via `nix-serve`, which requires a running server, and there is no mention of S3. There was also a time when private S3 caches [had to be created in us-east-1](https://github.com/NixOS/nix/pull/2319/files#diff-75751bba21fc2ca0563aff72d3390193R76). I also encountered issues that I've documented in the Troubleshooting section below.
+There are a number of articles/manuals online regarding Nix binary caches, but I found that there has been significant changes to the API in the last few years. The [official guide](https://nixos.wiki/wiki/Binary_Cache) still uses HTTP via `nix-serve`, which requires a running server, and there is no mention of S3. There was also a time when private S3 caches [had to be created in us-east-1](https://github.com/NixOS/nix/pull/2319/files#diff-75751bba21fc2ca0563aff72d3390193R76). I also encountered issues that I've documented in the Troubleshooting section below.
 
 Therefore, here we go, the ultimate guide (as per August 2020), to setting up a Nix binary cache :)
 
