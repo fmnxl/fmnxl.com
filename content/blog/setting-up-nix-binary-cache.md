@@ -11,11 +11,11 @@ discussion_id = "private-nix-binary-cache"
 This post builds on fzakaria's [article on setting up a binary cache on S3](https://fzakaria.com/2020/07/15/setting-up-a-nix-s3-binary-cache.html).
 
 
-### Why use a remote cache
+### Intro
 
-When building derivations in Nix, it can be faster to fetch the built result instead of building it locally. By default, Nix comes with a cache (https://cache.nixos.org).
+On CI (e.g. Travis), where each build is run on a pristine environment, I need to be able to cache packages across builds to minimise build time. Also, for closed-source code, I need this cache to be private.
 
-For our own paths (thing's you built), we're usually covered by `/nix/store`. However, there is a case for having a _remote_ cache, for example on CI, where each build is run on a pristine environment. By setting up our own remote binary cache, we can cache across machines. It's also possible to use a private cache for things we don't want to be public, such as your company's code.
+It is also possible to share binary cache within a development team, but I am not going to cover that here. There's a good [article](https://www.tweag.io/blog/2019-11-21-untrusted-ci/) by Tweag on that. This article is mainly aimed at solo developers or small teams where everyone can be trusted to push to the cache.
 
 
 ### Before we start
